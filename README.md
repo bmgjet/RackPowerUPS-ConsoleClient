@@ -78,5 +78,8 @@ The application will auto-connect using these settings.
 * Only tested with Power Rack 3000W UPS, But should work with 1000W, 2000W, 6000W and 10,000W Models
 * Requires .NET Framework 4.7+
 
+## Library File Source Code
+https://github.com/bmgjet/RackPowerUPS-Library
+
 ## Rack Power Website
 https://rackpower.co.nz/product-category/ups/tower/
