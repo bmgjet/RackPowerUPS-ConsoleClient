@@ -1,267 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>RackPower UPS API</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f7f7f7;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .field {
-            margin-bottom: 10px;
-            padding: 8px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        code {
-            background: #eee;
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>RackPower UPS API</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #444;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 6px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .field {
+      background: #fff;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.15s ease;
+    }
+    .field:hover {
+      transform: translateY(-2px);
+    }
+    .field b {
+      font-size: 1.05em;
+      margin-bottom: 6px;
+      color: #111;
+    }
+    .links {
+      font-size: 0.9em;
+      margin-bottom: 8px;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img {
+      margin-top: 6px;
+      max-height: 28px;
+      background: transparent;
+    }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .tip {
+      margin-top: 40px;
+      font-size: 0.9em;
+      text-align: center;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <h1>RackPower UPS API</h1>
-    <p>Each field can be accessed as raw text or as a PNG image with a transparent background.</p>
+  <h1>RackPower UPS API</h1>
+  <p style="text-align:center;">Each field can be accessed as raw text or as a PNG image with transparent background.</p>
 
-    <h2>Usage</h2>
-    <ul>
-        <li><b>Text:</b> <code>http://localhost:8000/FieldName</code></li>
-        <li><b>PNG:</b> <code>http://localhost:8000/FieldName.png</code></li>
-        <li><b>PNG with options:</b> <code>http://localhost:8000/size=32/color=ff0000/FieldName.png</code></li>
-    </ul>
+  <h2>Usage</h2>
+  <ul>
+    <li><b>Text:</b> <code>/FieldName</code></li>
+    <li><b>PNG:</b> <code>/FieldName.png</code></li>
+    <li><b>PNG with options:</b> <code>/size=32/color=ff0000/FieldName.png</code></li>
+  </ul>
 
-    <h2>Available Fields</h2>
+  <!-- Manufacturer & Firmware -->
+  <h2>Manufacturer & Firmware</h2>
+  <div class="grid">
+    <div class="field"><b>Model</b><div class="links"><a href="./Model">Text</a> | <a href="./Model.png">PNG</a></div><img src="./size=24/color=000000/Model.png" alt="Model"></div>
+    <div class="field"><b>Version</b><div class="links"><a href="./Version">Text</a> | <a href="./Version.png">PNG</a></div><img src="./size=24/color=008000/Version.png" alt="Version"></div>
+    <div class="field"><b>BatteryCount</b><div class="links"><a href="./BatteryCount">Text</a> | <a href="./BatteryCount.png">PNG</a></div><img src="./size=24/color=000000/BatteryCount.png" alt="BatteryCount"></div>
+  </div>
 
-    <!-- Manufacturer & Firmware -->
-    <div class="field"><b>Model</b> — 
-        <a href="http://localhost:8000/Model">Text</a> | 
-        <a href="http://localhost:8000/Model.png">PNG</a> | 
-        <a href="http://localhost:8000/size=28/color=0000ff/Model.png">Example</a>
-    </div>
-    <div class="field"><b>Version</b> — 
-        <a href="http://localhost:8000/Version">Text</a> | 
-        <a href="http://localhost:8000/Version.png">PNG</a> | 
-        <a href="http://localhost:8000/size=28/color=008000/Version.png">Example</a>
-    </div>
-    <div class="field"><b>BatteryCount</b> — 
-        <a href="http://localhost:8000/BatteryCount">Text</a> | 
-        <a href="http://localhost:8000/BatteryCount.png">PNG</a>
-    </div>
+  <!-- Power Metrics -->
+  <h2>Power Metrics</h2>
+  <div class="grid">
+    <div class="field"><b>BypassVoltage</b><div class="links"><a href="./BypassVoltage">Text</a> | <a href="./BypassVoltage.png">PNG</a></div><img src="./size=24/color=000000/BypassVoltage.png"></div>
+    <div class="field"><b>MainVoltage</b><div class="links"><a href="./MainVoltage">Text</a> | <a href="./MainVoltage.png">PNG</a></div><img src="./size=24/color=000000/MainVoltage.png"></div>
+    <div class="field"><b>OutputVoltage</b><div class="links"><a href="./OutputVoltage">Text</a> | <a href="./OutputVoltage.png">PNG</a></div><img src="./size=24/color=000000/OutputVoltage.png"></div>
+    <div class="field"><b>VA</b><div class="links"><a href="./VA">Text</a> | <a href="./VA.png">PNG</a></div><img src="./size=24/color=000000/VA.png"></div>
+    <div class="field"><b>Watts</b><div class="links"><a href="./Watts">Text</a> | <a href="./Watts.png">PNG</a></div><img src="./size=24/color=000000/Watts.png"></div>
+    <div class="field"><b>BatteryVoltage</b><div class="links"><a href="./BatteryVoltage">Text</a> | <a href="./BatteryVoltage.png">PNG</a></div><img src="./size=24/color=000000/BatteryVoltage.png"></div>
+    <div class="field"><b>BatteryCurrent</b><div class="links"><a href="./BatteryCurrent">Text</a> | <a href="./BatteryCurrent.png">PNG</a></div><img src="./size=24/color=000000/BatteryCurrent.png"></div>
+    <div class="field"><b>BatteryCapacity</b><div class="links"><a href="./BatteryCapacity">Text</a> | <a href="./BatteryCapacity.png">PNG</a></div><img src="./size=24/color=000000/BatteryCapacity.png"></div>
+    <div class="field"><b>BatteryTimeRemain</b><div class="links"><a href="./BatteryTimeRemain">Text</a> | <a href="./BatteryTimeRemain.png">PNG</a></div><img src="./size=24/color=000000/BatteryTimeRemain.png"></div>
+    <div class="field"><b>BatteryTemp</b><div class="links"><a href="./BatteryTemp">Text</a> | <a href="./BatteryTemp.png">PNG</a></div><img src="./size=24/color=000000/BatteryTemp.png"></div>
+    <div class="field"><b>Runtime</b><div class="links"><a href="./Runtime">Text</a> | <a href="./Runtime.png">PNG</a></div><img src="./size=24/color=000000/Runtime.png"></div>
+    <div class="field"><b>BusVoltage</b><div class="links"><a href="./BusVoltage">Text</a> | <a href="./BusVoltage.png">PNG</a></div><img src="./size=24/color=000000/BusVoltage.png"></div>
+    <div class="field"><b>Syscode</b><div class="links"><a href="./Syscode">Text</a> | <a href="./Syscode.png">PNG</a></div><img src="./size=24/color=000000/Syscode.png"></div>
+    <div class="field"><b>LoadPercent</b><div class="links"><a href="./LoadPercent">Text</a> | <a href="./LoadPercent.png">PNG</a></div><img src="./size=24/color=000000/LoadPercent.png"></div>
+    <div class="field"><b>BypassFreq</b><div class="links"><a href="./BypassFreq">Text</a> | <a href="./BypassFreq.png">PNG</a></div><img src="./size=24/color=000000/BypassFreq.png"></div>
+    <div class="field"><b>MainFreq</b><div class="links"><a href="./MainFreq">Text</a> | <a href="./MainFreq.png">PNG</a></div><img src="./size=24/color=000000/MainFreq.png"></div>
+    <div class="field"><b>OutputFreq</b><div class="links"><a href="./OutputFreq">Text</a> | <a href="./OutputFreq.png">PNG</a></div><img src="./size=24/color=000000/OutputFreq.png"></div>
+    <div class="field"><b>RatedOutputVoltage</b><div class="links"><a href="./RatedOutputVoltage">Text</a> | <a href="./RatedOutputVoltage.png">PNG</a></div><img src="./size=24/color=000000/RatedOutputVoltage.png"></div>
+    <div class="field"><b>RatedOutputFreq</b><div class="links"><a href="./RatedOutputFreq">Text</a> | <a href="./RatedOutputFreq.png">PNG</a></div><img src="./size=24/color=000000/RatedOutputFreq.png"></div>
+    <div class="field"><b>RatedInputVoltage</b><div class="links"><a href="./RatedInputVoltage">Text</a> | <a href="./RatedInputVoltage.png">PNG</a></div><img src="./size=24/color=000000/RatedInputVoltage.png"></div>
+    <div class="field"><b>RatedInputFreq</b><div class="links"><a href="./RatedInputFreq">Text</a> | <a href="./RatedInputFreq.png">PNG</a></div><img src="./size=24/color=000000/RatedInputFreq.png"></div>
+    <div class="field"><b>MaxWatt</b><div class="links"><a href="./MaxWatt">Text</a> | <a href="./MaxWatt.png">PNG</a></div><img src="./size=24/color=000000/MaxWatt.png"></div>
+    <div class="field"><b>MainCurrent</b><div class="links"><a href="./MainCurrent">Text</a> | <a href="./MainCurrent.png">PNG</a></div><img src="./size=24/color=000000/MainCurrent.png"></div>
+    <div class="field"><b>OutCurrent</b><div class="links"><a href="./OutCurrent">Text</a> | <a href="./OutCurrent.png">PNG</a></div><img src="./size=24/color=000000/OutCurrent.png"></div>
+    <div class="field"><b>BypassPF</b><div class="links"><a href="./BypassPF">Text</a> | <a href="./BypassPF.png">PNG</a></div><img src="./size=24/color=000000/BypassPF.png"></div>
+    <div class="field"><b>MainPF</b><div class="links"><a href="./MainPF">Text</a> | <a href="./MainPF.png">PNG</a></div><img src="./size=24/color=000000/MainPF.png"></div>
+    <div class="field"><b>OutputPF</b><div class="links"><a href="./OutputPF">Text</a> | <a href="./OutputPF.png">PNG</a></div><img src="./size=24/color=000000/OutputPF.png"></div>
+  </div>
 
-    <!-- Power Metrics -->
-    <div class="field"><b>BypassVoltage</b> — 
-        <a href="http://localhost:8000/BypassVoltage">Text</a> | 
-        <a href="http://localhost:8000/BypassVoltage.png">PNG</a>
-    </div>
-    <div class="field"><b>MainVoltage</b> — 
-        <a href="http://localhost:8000/MainVoltage">Text</a> | 
-        <a href="http://localhost:8000/MainVoltage.png">PNG</a>
-    </div>
-    <div class="field"><b>OutputVoltage</b> — 
-        <a href="http://localhost:8000/OutputVoltage">Text</a> | 
-        <a href="http://localhost:8000/OutputVoltage.png">PNG</a>
-    </div>
-    <div class="field"><b>VA</b> — 
-        <a href="http://localhost:8000/VA">Text</a> | 
-        <a href="http://localhost:8000/VA.png">PNG</a>
-    </div>
-    <div class="field"><b>Watts</b> — 
-        <a href="http://localhost:8000/Watts">Text</a> | 
-        <a href="http://localhost:8000/Watts.png">PNG</a>
-    </div>
-    <div class="field"><b>BatteryVoltage</b> — 
-        <a href="http://localhost:8000/BatteryVoltage">Text</a> | 
-        <a href="http://localhost:8000/BatteryVoltage.png">PNG</a>
-    </div>
-    <div class="field"><b>BatteryCurrent</b> — 
-        <a href="http://localhost:8000/BatteryCurrent">Text</a> | 
-        <a href="http://localhost:8000/BatteryCurrent.png">PNG</a>
-    </div>
-    <div class="field"><b>BatteryCapacity</b> — 
-        <a href="http://localhost:8000/BatteryCapacity">Text</a> | 
-        <a href="http://localhost:8000/BatteryCapacity.png">PNG</a>
-    </div>
-    <div class="field"><b>BatteryTimeRemain</b> — 
-        <a href="http://localhost:8000/BatteryTimeRemain">Text</a> | 
-        <a href="http://localhost:8000/BatteryTimeRemain.png">PNG</a>
-    </div>
-    <div class="field"><b>BatteryTemp</b> — 
-        <a href="http://localhost:8000/BatteryTemp">Text</a> | 
-        <a href="http://localhost:8000/BatteryTemp.png">PNG</a>
-    </div>
-    <div class="field"><b>Runtime</b> — 
-        <a href="http://localhost:8000/Runtime">Text</a> | 
-        <a href="http://localhost:8000/Runtime.png">PNG</a>
-    </div>
-    <div class="field"><b>BusVoltage</b> — 
-        <a href="http://localhost:8000/BusVoltage">Text</a> | 
-        <a href="http://localhost:8000/BusVoltage.png">PNG</a>
-    </div>
-    <div class="field"><b>Syscode</b> — 
-        <a href="http://localhost:8000/Syscode">Text</a> | 
-        <a href="http://localhost:8000/Syscode.png">PNG</a>
-    </div>
-    <div class="field"><b>LoadPercent</b> — 
-        <a href="http://localhost:8000/LoadPercent">Text</a> | 
-        <a href="http://localhost:8000/LoadPercent.png">PNG</a>
-    </div>
-    <div class="field"><b>BypassFreq</b> — 
-        <a href="http://localhost:8000/BypassFreq">Text</a> | 
-        <a href="http://localhost:8000/BypassFreq.png">PNG</a>
-    </div>
-    <div class="field"><b>MainFreq</b> — 
-        <a href="http://localhost:8000/MainFreq">Text</a> | 
-        <a href="http://localhost:8000/MainFreq.png">PNG</a>
-    </div>
-    <div class="field"><b>OutputFreq</b> — 
-        <a href="http://localhost:8000/OutputFreq">Text</a> | 
-        <a href="http://localhost:8000/OutputFreq.png">PNG</a>
-    </div>
-    <div class="field"><b>RatedOutputVoltage</b> — 
-        <a href="http://localhost:8000/RatedOutputVoltage">Text</a> | 
-        <a href="http://localhost:8000/RatedOutputVoltage.png">PNG</a>
-    </div>
-    <div class="field"><b>RatedOutputFreq</b> — 
-        <a href="http://localhost:8000/RatedOutputFreq">Text</a> | 
-        <a href="http://localhost:8000/RatedOutputFreq.png">PNG</a>
-    </div>
-    <div class="field"><b>RatedInputVoltage</b> — 
-        <a href="http://localhost:8000/RatedInputVoltage">Text</a> | 
-        <a href="http://localhost:8000/RatedInputVoltage.png">PNG</a>
-    </div>
-    <div class="field"><b>RatedInputFreq</b> — 
-        <a href="http://localhost:8000/RatedInputFreq">Text</a> | 
-        <a href="http://localhost:8000/RatedInputFreq.png">PNG</a>
-    </div>
-    <div class="field"><b>MaxWatt</b> — 
-        <a href="http://localhost:8000/MaxWatt">Text</a> | 
-        <a href="http://localhost:8000/MaxWatt.png">PNG</a>
-    </div>
-    <div class="field"><b>MainCurrent</b> — 
-        <a href="http://localhost:8000/MainCurrent">Text</a> | 
-        <a href="http://localhost:8000/MainCurrent.png">PNG</a>
-    </div>
-    <div class="field"><b>OutCurrent</b> — 
-        <a href="http://localhost:8000/OutCurrent">Text</a> | 
-        <a href="http://localhost:8000/OutCurrent.png">PNG</a>
-    </div>
-    <div class="field"><b>BypassPF</b> — 
-        <a href="http://localhost:8000/BypassPF">Text</a> | 
-        <a href="http://localhost:8000/BypassPF.png">PNG</a>
-    </div>
-    <div class="field"><b>MainPF</b> — 
-        <a href="http://localhost:8000/MainPF">Text</a> | 
-        <a href="http://localhost:8000/MainPF.png">PNG</a>
-    </div>
-    <div class="field"><b>OutputPF</b> — 
-        <a href="http://localhost:8000/OutputPF">Text</a> | 
-        <a href="http://localhost:8000/OutputPF.png">PNG</a>
-    </div>
+  <!-- Charger & Inverter -->
+  <h2>Charger & Inverter Info</h2>
+  <div class="grid">
+    <div class="field"><b>ChargerCurrent</b><div class="links"><a href="./ChargerCurrent">Text</a> | <a href="./ChargerCurrent.png">PNG</a></div><img src="./size=24/color=000000/ChargerCurrent.png"></div>
+    <div class="field"><b>InverterVoltage</b><div class="links"><a href="./InverterVoltage">Text</a> | <a href="./InverterVoltage.png">PNG</a></div><img src="./size=24/color=000000/InverterVoltage.png"></div>
+    <div class="field"><b>RecIGBTTemp</b><div class="links"><a href="./RecIGBTTemp">Text</a> | <a href="./RecIGBTTemp.png">PNG</a></div><img src="./size=24/color=000000/RecIGBTTemp.png"></div>
+    <div class="field"><b>InvIGBTTemp</b><div class="links"><a href="./InvIGBTTemp">Text</a> | <a href="./InvIGBTTemp.png">PNG</a></div><img src="./size=24/color=000000/InvIGBTTemp.png"></div>
+  </div>
 
-    <!-- Charger & Inverter Info -->
-    <div class="field"><b>ChargerCurrent</b> — 
-        <a href="http://localhost:8000/ChargerCurrent">Text</a> | 
-        <a href="http://localhost:8000/ChargerCurrent.png">PNG</a>
-    </div>
-    <div class="field"><b>InverterVoltage</b> — 
-        <a href="http://localhost:8000/InverterVoltage">Text</a> | 
-        <a href="http://localhost:8000/InverterVoltage.png">PNG</a>
-    </div>
-    <div class="field"><b>RecIGBTTemp</b> — 
-        <a href="http://localhost:8000/RecIGBTTemp">Text</a> | 
-        <a href="http://localhost:8000/RecIGBTTemp.png">PNG</a>
-    </div>
-    <div class="field"><b>InvIGBTTemp</b> — 
-        <a href="http://localhost:8000/InvIGBTTemp">Text</a> | 
-        <a href="http://localhost:8000/InvIGBTTemp.png">PNG</a>
-    </div>
+  <!-- Switch & Output Status -->
+  <h2>Switch & Output Status</h2>
+  <div class="grid">
+    <div class="field"><b>CurrentSwitchState</b><div class="links"><a href="./CurrentSwitchState">Text</a> | <a href="./CurrentSwitchState.png">PNG</a></div><img src="./size=24/color=000000/CurrentSwitchState.png"></div>
+    <div class="field"><b>CurrentOutputStatus</b><div class="links"><a href="./CurrentOutputStatus">Text</a> | <a href="./CurrentOutputStatus.png">PNG</a></div><img src="./size=24/color=000000/CurrentOutputStatus.png"></div>
+    <div class="field"><b>CurrentHardware</b><div class="links"><a href="./CurrentHardware">Text</a> | <a href="./CurrentHardware.png">PNG</a></div><img src="./size=24/color=000000/CurrentHardware.png"></div>
+    <div class="field"><b>BatteryConnected</b><div class="links"><a href="./BatteryConnected">Text</a> | <a href="./BatteryConnected.png">PNG</a></div><img src="./size=24/color=000000/BatteryConnected.png"></div>
+  </div>
 
-    <!-- Switch & Output Status -->
-    <div class="field"><b>CurrentSwitchState</b> — 
-        <a href="http://localhost:8000/CurrentSwitchState">Text</a> | 
-        <a href="http://localhost:8000/CurrentSwitchState.png">PNG</a>
-    </div>
-    <div class="field"><b>CurrentOutputStatus</b> — 
-        <a href="http://localhost:8000/CurrentOutputStatus">Text</a> | 
-        <a href="http://localhost:8000/CurrentOutputStatus.png">PNG</a>
-    </div>
-    <div class="field"><b>CurrentHardware</b> — 
-        <a href="http://localhost:8000/CurrentHardware">Text</a> | 
-        <a href="http://localhost:8000/CurrentHardware.png">PNG</a>
-    </div>
-    <div class="field"><b>BatteryConnected</b> — 
-        <a href="http://localhost:8000/BatteryConnected">Text</a> | 
-        <a href="http://localhost:8000/BatteryConnected.png">PNG</a>
-    </div>
+  <!-- System Status Flags -->
+  <h2>System Status Flags</h2>
+  <div class="grid">
+    <div class="field"><b>StatusFlags</b><div class="links"><a href="./StatusFlags">Text</a> | <a href="./StatusFlags.png">PNG</a></div><img src="./size=24/color=000000/StatusFlags.png"></div>
+    <div class="field"><b>StatusFlags2</b><div class="links"><a href="./StatusFlags2">Text</a> | <a href="./StatusFlags2.png">PNG</a></div><img src="./size=24/color=000000/StatusFlags2.png"></div>
+    <div class="field"><b>IsAmbientOverTemp</b><div class="links"><a href="./IsAmbientOverTemp">Text</a> | <a href="./IsAmbientOverTemp.png">PNG</a></div><img src="./size=24/color=000000/IsAmbientOverTemp.png"></div>
+    <div class="field"><b>IsRecCanFail</b><div class="links"><a href="./IsRecCanFail">Text</a> | <a href="./IsRecCanFail.png">PNG</a></div><img src="./size=24/color=000000/IsRecCanFail.png"></div>
+    <div class="field"><b>IsInvIoCanFail</b><div class="links"><a href="./IsInvIoCanFail">Text</a> | <a href="./IsInvIoCanFail.png">PNG</a></div><img src="./size=24/color=000000/IsInvIoCanFail.png"></div>
+    <div class="field"><b>IsInvDataCanFail</b><div class="links"><a href="./IsInvDataCanFail">Text</a> | <a href="./IsInvDataCanFail.png">PNG</a></div><img src="./size=24/color=000000/IsInvDataCanFail.png"></div>
+    <div class="field"><b>IsBypassPowerFuseFail</b><div class="links"><a href="./IsBypassPowerFuseFail">Text</a> | <a href="./IsBypassPowerFuseFail.png">PNG</a></div><img src="./size=24/color=000000/IsBypassPowerFuseFail.png"></div>
+    <div class="field"><b>IsRatedKvaOverRange</b><div class="links"><a href="./IsRatedKvaOverRange">Text</a> | <a href="./IsRatedKvaOverRange.png">PNG</a></div><img src="./size=24/color=000000/IsRatedKvaOverRange.png"></div>
+  </div>
 
-    <!-- System Status Flags -->
-    <div class="field"><b>StatusFlags</b> — 
-        <a href="http://localhost:8000/StatusFlags">Text</a> | 
-        <a href="http://localhost:8000/StatusFlags.png">PNG</a>
-    </div>
-    <div class="field"><b>StatusFlags2</b> — 
-        <a href="http://localhost:8000/StatusFlags2">Text</a> | 
-        <a href="http://localhost:8000/StatusFlags2.png">PNG</a>
-    </div>
-    <div class="field"><b>IsAmbientOverTemp</b> — 
-        <a href="http://localhost:8000/IsAmbientOverTemp">Text</a> | 
-        <a href="http://localhost:8000/IsAmbientOverTemp.png">PNG</a>
-    </div>
-    <div class="field"><b>IsRecCanFail</b> — 
-        <a href="http://localhost:8000/IsRecCanFail">Text</a> | 
-        <a href="http://localhost:8000/IsRecCanFail.png">PNG</a>
-    </div>
-    <div class="field"><b>IsInvIoCanFail</b> — 
-        <a href="http://localhost:8000/IsInvIoCanFail">Text</a> | 
-        <a href="http://localhost:8000/IsInvIoCanFail.png">PNG</a>
-    </div>
-    <div class="field"><b>IsInvDataCanFail</b> — 
-        <a href="http://localhost:8000/IsInvDataCanFail">Text</a> | 
-        <a href="http://localhost:8000/IsInvDataCanFail.png">PNG</a>
-    </div>
-    <div class="field"><b>IsBypassPowerFuseFail</b> — 
-        <a href="http://localhost:8000/IsBypassPowerFuseFail">Text</a> | 
-        <a href="http://localhost:8000/IsBypassPowerFuseFail.png">PNG</a>
-    </div>
-    <div class="field"><b>IsRatedKvaOverRange</b> — 
-        <a href="http://localhost:8000/IsRatedKvaOverRange">Text</a> | 
-        <a href="http://localhost:8000/IsRatedKvaOverRange.png">PNG</a>
-    </div>
+  <!-- Internal Buffers -->
+  <h2>Internal Buffers</h2>
+  <div class="grid">
+    <div class="field"><b>BufferUnderRun</b><div class="links"><a href="./BufferUnderRun">Text</a> | <a href="./BufferUnderRun.png">PNG</a></div><img src="./size=24/color=000000/BufferUnderRun.png"></div>
+    <div class="field"><b>UnderRunMethod</b><div class="links"><a href="./UnderRunMethod">Text</a> | <a href="./UnderRunMethod.png">PNG</a></div><img src="./size=24/color=000000/UnderRunMethod.png"></div>
+    <div class="field"><b>TotalCost</b><div class="links"><a href="./TotalCost">Text</a> | <a href="./TotalCost.png">PNG</a></div><img src="./size=24/color=000000/TotalCost.png"></div>
+    <div class="field"><b>TotalWatts</b><div class="links"><a href="./TotalWatts">Text</a> | <a href="./TotalWatts.png">PNG</a></div><img src="./size=24/color=000000/TotalWatts.png"></div>
+  </div>
 
-    <!-- Internal Buffers -->
-    <div class="field"><b>BufferUnderRun</b> — 
-        <a href="http://localhost:8000/BufferUnderRun">Text</a> | 
-        <a href="http://localhost:8000/BufferUnderRun.png">PNG</a>
-    </div>
-    <div class="field"><b>UnderRunMethod</b> — 
-        <a href="http://localhost:8000/UnderRunMethod">Text</a> | 
-        <a href="http://localhost:8000/UnderRunMethod.png">PNG</a>
-    </div>
-    <div class="field"><b>TotalCost</b> — 
-        <a href="http://localhost:8000/TotalCost">Text</a> | 
-        <a href="http://localhost:8000/TotalCost.png">PNG</a>
-    </div>
-    <div class="field"><b>TotalWatts</b> — 
-        <a href="http://localhost:8000/TotalWatts">Text</a> | 
-        <a href="http://localhost:8000/TotalWatts.png">PNG</a>
-    </div>
-
-    <p style="margin-top:30px; font-size:0.9em; color:#555;">
-        Tip: Adjust <code>size=XX</code> and <code>color=XXXXXX</code> in the URL for PNGs.
-    </p>
-</body>
-</html>
+  <p class="tip">
+    💡 Tip: Adjust <code>size=XX</code> and <code>color=XXXXXX</code
