@@ -77,6 +77,12 @@ The application will auto-connect using these settings.
 
 ---
 
+## 📊 Web API
+
+* Adding [index.html](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/index.html) to the same folder as RackPowerUPSConsole.exe will trigger the application to open a api port at 8000, Examples and information with in the example index.html here. You can make the file empty or put anything you want in it and it will still function.<br>You can access the SQLite db file directly with the web api enabled and the SQLite.dll installed. <br>Example: http://localhost:8000/ups_logs.db
+
+---
+
 ## 🛠️ Notes
 
 * Make sure UPS serial port is configured correctly
