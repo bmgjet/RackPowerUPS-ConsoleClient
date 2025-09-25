@@ -80,14 +80,14 @@ The application will auto-connect using these settings.
 ## 📊 Web API
 
 * Adding [index.html](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/index.html) to the same folder as RackPowerUPSConsole.exe will trigger the application to open a api port at 8000, Examples and information with in the example index.html here. You can make the file empty or put anything you want in it and it will still function.<br>You can access the SQLite db file directly with the web api enabled and the SQLite.dll installed. <br>Example: http://localhost:8000/ups_logs.db
-
+<br>![Screenshot](https://github.com/bmgjet/RackPowerUPS-ConsoleClient/blob/main/webapi-screenshot.png?raw=true)
 ---
 
 ## 🛠️ Notes
 
 * Make sure UPS serial port is configured correctly
 * Use the COM port that appears in Windows Device Manager
-* Only tested with Power Rack 3000W UPS, But should work with 1000W, 2000W, 6000W and 10,000W Models
+* Only tested with Power Rack 3000W UPS, But should work with 1000W, 2000W Models and 6000W and 10000W with reduced information.
 * Requires .NET Framework 4.7+
 
 ## Library File Source Code
