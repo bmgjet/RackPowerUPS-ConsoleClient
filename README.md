@@ -72,8 +72,15 @@ The application will auto-connect using these settings.
 
 ## 📊 SQLite
 
-* Adding [sqlite3.dll](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/sqlite3.dll) to the same folder as RackPowerUPSConsole.exe will trigger the application to dump each sample from the UPS to ups_logs.db. This can be used to view graphs of data over time. It will consume about 600kb per hour.<br>
+* Adding [sqlite3.dll](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/sqlite3.dll) and [System.Data.SQLite.dll](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/System.Data.SQLite.dll) to the same folder as RackPowerUPSConsole.exe will trigger the application to dump each sample from the UPS to ups_logs.db. This can be used to view graphs of data over time. It will consume about 720kb per hour.<br>
 ![Screenshot](https://github.com/bmgjet/RackPowerUPS-ConsoleClient/blob/main/SQLiteGraph.png?raw=true)
+
+---
+
+## 📊 Grafana
+
+* You can view the ups_logs.db (SQLite database) with Grafana. There is a dashboard template here [Grafana-Dashboard-RackPower.json](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/Grafana-Dashboard-RackPower.json)<br>
+![Screenshot](https://github.com/bmgjet/RackPowerUPS-ConsoleClient/blob/main/Grafana12-screenshot.png?raw=true)
 
 ---
 
