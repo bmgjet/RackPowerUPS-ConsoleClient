@@ -91,7 +91,7 @@ CostPerKW|TotalKWUsed|COM1|9600|WebAPI
 
 ## 📊 Web API
 
-* Adding [index.html](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/index.html) to the same folder as RackPowerUPSConsole.exe will trigger the application to open a api port at 8000<br>(Port can be changed with Config file) [How To Set Port](https://github.com/bmgjet/RackPowerUPS-ConsoleClient/main/README.md#change-webapi-port),<br>Examples and information with in the example index.html here. You can make the file empty or put anything you want in it and it will still function.<br>You can access the SQLite db file directly with the web api enabled and the SQLite.dll installed. <br>Example: http://localhost:8000/ups_logs.db
+* Adding [index.html](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/index.html) to the same folder as RackPowerUPSConsole.exe will trigger the application to open a WebAPI port at 8000 unless set in the config. [How To Set Port](https://github.com/bmgjet/RackPowerUPS-ConsoleClient/blob/main/README.md#change-webapi-port)<br><br>Examples and information with in the example index.html here. You can make the file empty or put anything you want in it and it will still function.<br>You can access the SQLite db file directly with the web api enabled and the SQLite.dll installed. <br>Example: http://localhost:8000/ups_logs.db
 <br>![Screenshot](https://github.com/bmgjet/RackPowerUPS-ConsoleClient/blob/main/webapi-screenshot.png?raw=true)
 ---
 
