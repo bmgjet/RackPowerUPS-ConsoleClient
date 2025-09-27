@@ -84,8 +84,8 @@ CostPerKW|TotalKWUsed|COM1|9600|WebAPI
 
 ## 📊 Grafana
 
-* You can view the ups_logs.db (SQLite database) with Grafana. There is a dashboard template here [Grafana-Dashboard-RackPower.json](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/Grafana-Dashboard-RackPower.json)<br>
-![Screenshot](https://github.com/bmgjet/RackPowerUPS-ConsoleClient/blob/main/Grafana12-screenshot.png?raw=true)
+* You can view the ups_logs.db (SQLite database) with Grafana, Make sure when setting up the database its set as mode=ro (Read Only). There is a dashboard template here [Grafana-Dashboard-RackPower.json](https://raw.githubusercontent.com/bmgjet/RackPowerUPS-ConsoleClient/refs/heads/main/Grafana-Dashboard-RackPower.json)<br>
+![Screenshot](https://github.com/bmgjet/RackPowerUPS-ConsoleClient/blob/main/Grafana12-screenshot.png?raw=true)<br>Video:<br>[![Mobile](https://img.youtube.com/vi/PzLGLP1t6gU/0.jpg)](https://www.youtube.com/watch?v=PzLGLP1t6gU)
 
 ---
 
